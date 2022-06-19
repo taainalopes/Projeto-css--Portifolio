@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100;200;400;500;700&display=swap');
+*{ /* limpando o estilo do HTML */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family:'Anek Latin', 'Times New Roman', serif;
+    scroll-behavior: smooth;
+    background-color: rgb(178, 239, 250);
+}
+
+a{
+    text-decoration: none;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+p {
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 200;
+    letter-spacing: 0.05rem;
+}
+
+
+
+.container{
+  min-height: 100vh;  
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title {
+    font-size: 4rem;
+    font-weight: 500;
+    color: black; 
+    margin-bottom: 10px;
+    margin-top:5px;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+
+
+/* estilazando a apresentação */
+
+#apresentacao {
+    background-image: url(./Imgs/tetris.jpg);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+
+#apresentacao h1 {
+    display:block;
+    width: fit-content;
+    padding: 10px;
+    font-size: 5rem;
+    position: relative; 
+    color: transparent;
+    animation: text_reveal .5s forwards; 
+    animation-delay:1.5s;
+}
+
+
+/*
+#apresentacao h1:nth-child(1) {
+    animation-delay: 1s;
+}
+#apresentacao h1:nth-child(2) {
+    animation-delay: 2s;
+}
+#apresentacao h1:nth-child(3) {
+    animation-delay: 3s;
+}
+*/
+
+/*usando forward para que as definições que foram definidar na animação continue*/
+
+#apresentacao h1:nth-child(3) {
+    animation:text-reveal-name .5s ease forwards;
+}
+
+#apresentacao .btn-cta {
+    display: inline-block;
+    padding: 10px 30px;
+    color: rgb(85, 198, 255);
+    background-color: transparent;
+    border: 2px solid rgb(247, 228, 60);
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 20px;
+    transition: .5s ease;
+    transition-property:background-color, color;
+}
+
+#apresentacao .btn-cta:hover {
+    color: rgb(20, 20, 20);
+    font-weight: 500;
+    background-color: rgb(243, 215, 78);
+}
+
+#apresentacao h1 span {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    height: 100%;
+    width: 0%;
+    animation:text-reveal-box 1s ease;
+    animation-delay: .5s;
+    background-color: rgb(83, 110, 228);
+}
+
+/* para mudar a apresentação só retirar esses cometários */
+/*
+#apresentacao h1:nth-child(1) span{
+    animation-delay:.5s;
+}
+
+#apresentacao h1:nth-child(2) span{
+    animation-delay:1.5s;
+}
+
+#apresentacao h1:nth-child(3) span{
+    animation-delay:2.5s;
+}
+
+*/
+
+
+/* aplicação de filtro para suavizar a imagem */
+#apresentacao:after{
+  content:'';  
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(12, 12, 12);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/*  estilizando projects*/
+
+#project .project {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#project .project-header h1 {
+    margin-bottom: 50px;
+}
+
+#project .project-item {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#project .all-projects{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#project .informations-projetc{
+    padding: 30px;
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image:linear-gradient(60deg,rgb(251, 236, 154) 0%, rgb(251, 230, 0));
+}
+
+#project .informations-projetc h1{
+    font-size: 4rem;
+    font-weight:500;
+}
+
+#project .informations-projetc h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+#project .img-project {
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+#project .img-project:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg, rgb(36, 33, 33) 0% , rgb(84, 76, 76) 100%);
+    opacity: 0.7;
+}
+
+#project .img-project img{
+    transition: 0.7s ease transform;
+}
+
+#project .project-item:hover .img-project img{
+    transform: scale(1.1);
+}
+
+/* uso de keyframes*/
+@keyframes text_reveal{
+    100% {
+        color: rgb(231, 216, 51);
+    }
+}
+
+@keyframes text-reveal-name{
+    100% {
+        color: rgb(85, 198, 255);
+        font-weight: 400;
+    }
+}
+@keyframes text-reveal-box{
+    50%{
+        width: 100%;
+        left: 0;
+    } 
+
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
+
+/* deixando responsivo com media query */
+
+@media only screen and (min-width:768px){
+    #project .project-item {
+        flex-direction: row;
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    #project .all-projects .informations-projetc {
+        height: 100%;
+    }
+
+    #project .all-projects .img-project {
+        height: 100%;
+    }
+
+    /* pegando os numeros pares */
+    #project .project-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
